@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AnggotaController;
 use App\Http\Controllers\BukuController;
 use App\Http\Controllers\PeminjamanController;
 use App\Http\Controllers\ProfileController;
@@ -19,6 +20,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::resource('/buku', BukuController::class);
     Route::resource('/peminjaman', PeminjamanController::class);
+    Route::resource('/anggota', AnggotaController::class);
 });
 
 require __DIR__.'/auth.php';

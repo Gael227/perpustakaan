@@ -15,9 +15,9 @@ class AnggotaController extends Controller
 
     public function store(Request $request) {
         $request->validate([
-            'nama'=>['required'],
-            'email'=>['required'],
-            'telepon'=>['required'],
+            'nama'=>'required',
+            'email'=>'required',
+            'telepon'=>'required',
         ]);
 
         $anggota = Anggota::create($request->all());

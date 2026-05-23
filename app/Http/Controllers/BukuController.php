@@ -15,9 +15,9 @@ class BukuController extends Controller
 
     public function store(Request $request) {
         $request->validate([
-            'judul'=>['required'],
-            'tahun'=>['required'|'min:0'|'max:2026'],
-            'stok'=>['required'|'min:0']
+            'judul'=>'required',
+            'tahun'=>'required|numeric|min:0|max:2026',
+            'stok'=>'required|numeric|min:0',
         ]);
 
         $dataBuku = Buku::create($request->all());
@@ -32,9 +32,9 @@ class BukuController extends Controller
 
     public function update(Request $request, $id) {
         $request->validate([
-            'judul'=>['required'],
-            'tahun'=>['required'|'min:0'|'max:2026'],
-            'stok'=>['required'|'min:0']
+            'judul'=>'required',
+            'tahun'=>'required|numeric|min:0|max:2026',
+            'stok'=>'required|numeric|min:0',
         ]);
 
         Buku::findOrFail($id)->update($request->all());
